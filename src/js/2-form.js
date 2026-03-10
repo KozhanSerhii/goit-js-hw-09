@@ -30,5 +30,6 @@ function send(event){
         form.reset();
         formData.email = "";
         formData.message = "";
+        console.log(formData);
     }
 }
