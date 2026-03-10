@@ -1,10 +1,17 @@
 const form = document.querySelector(".feedback-form")
 const localStorageKey = "feedback-form-state";
 
-const formData = JSON.parse(localStorage.getItem(localStorageKey)) || {
-  email: "",
-  message: "",
-};
+
+let formData = { email: "", message: "" };
+
+try {
+  const savedData = localStorage.getItem(localStorageKey);
+  if (savedData) {
+    formData = JSON.parse(savedData);
+  }
+} catch (error) {
+  console.error("Помилка при читанні з localStorage:", error);
+}
 
 form.elements.email.value = formData.email;
 form.elements.message.value = formData.message;
