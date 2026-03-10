@@ -28,5 +28,7 @@ function send(event){
         console.log(formData);
         localStorage.removeItem(localStorageKey);
         form.reset();
+        formData.email = "";
+        formData.message = "";
     }
 }
